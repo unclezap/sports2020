@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_25_013847) do
+ActiveRecord::Schema.define(version: 2020_04_27_224138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,9 +22,35 @@ ActiveRecord::Schema.define(version: 2020_04_25_013847) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "predictions", force: :cascade do |t|
+    t.string "team_a"
+    t.string "team_b"
+    t.integer "team_a_score"
+    t.integer "team_b_score"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "article_id"
+  end
+
+  create_table "scores", force: :cascade do |t|
+    t.string "team"
+    t.integer "points"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "weekly_result_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "week_results", force: :cascade do |t|
+    t.string "results_text"
+    t.string "results_url"
+    t.integer "week"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

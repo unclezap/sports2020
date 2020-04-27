@@ -81,3 +81,5 @@ def self.find_scores_manual(html)
     end
     results_array
 end
+
+https://www.espn.com/nfl/story/_/id/28576384/super-bowl-liv-score-predictions-espn-experts-pick-49ers-chiefs

@@ -1,0 +1,2 @@
+class WeekResult < ApplicationRecord
+end

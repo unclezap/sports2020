@@ -45,3 +45,5 @@ gem 'jwt'
 gem 'httparty'
 
 gem 'nokogiri'
+
+gem 'pry'
