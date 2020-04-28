@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+#test comment
 
     def create
         @user = User.create(whodat)

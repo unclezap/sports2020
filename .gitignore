@@ -21,4 +21,4 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
-/controllers/application_controller.rb
+/app/controllers/application_controller.rb
