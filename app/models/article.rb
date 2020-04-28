@@ -1,5 +1,4 @@
 class Article < ApplicationRecord
-
     has_many :predictions
     belongs_to :batch
 

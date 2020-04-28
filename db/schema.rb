@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_28_020854) do
+ActiveRecord::Schema.define(version: 2020_04_28_021811) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,7 +44,6 @@ ActiveRecord::Schema.define(version: 2020_04_28_020854) do
     t.integer "points"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "weekly_result_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -60,6 +59,8 @@ ActiveRecord::Schema.define(version: 2020_04_28_020854) do
     t.integer "week"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "batch_id"
+    t.integer "week_result_id"
   end
 
 end
