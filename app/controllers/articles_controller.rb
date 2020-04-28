@@ -24,11 +24,14 @@ class ArticlesController < ApplicationController
     end
     
     def create
-        # byebug
-        # batch = Batch.create_with_all(whatdoesitsay)
-        # render json: batch
-        article = Article.all.first
-        render json: article
+        batch = Batch.create_with_all(params[:article])
+        predictions = batch.predictions
+        scores = batch.scores
+        hash = {}
+        hash[:batch] = batch
+        hash[:predictions] = predictions
+        hash[:scores] = scores
+        render json: hash
     end
 
     private

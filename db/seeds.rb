@@ -15,14 +15,14 @@ WeekResult.delete_all
 # start = Time.now
 
 # Article.create(article_text: "start db", article_url: "hi!")
-espn1 = Batch.create_with_all('https://www.espn.com/nfl/story/_/id/27155205/week-1-nfl-game-picks-schedule-guide-fantasy-football-tips-more')
+# espn1 = Batch.create_with_all('https://www.espn.com/nfl/story/_/id/27155205/week-1-nfl-game-picks-schedule-guide-fantasy-football-tips-more')
 # espn2 = Article.create_with_text('https://www.espn.com/nfl/story/_/id/27593208/week-2-nfl-game-picks-schedule-guide-fantasy-football-tips-more')
 # espn3 = Article.create_with_text('https://www.espn.com/nfl/story/_/id/27646341/week-3-nfl-game-picks-schedule-guide-fantasy-football-tips-more')
 # espn4 = Article.create_with_text('https://www.espn.com/nfl/story/_/id/27691599/week-4-nfl-game-picks-schedule-guide-fantasy-football-tips-more')
 # espn5 = Article.create_with_text('https://www.espn.com/nfl/story/_/id/27752831/week-5-nfl-game-picks-schedule-guide-fantasy-football-tips-more')
 # espn6 = Article.create_with_text('https://www.espn.com/nfl/story/_/id/27807791/week-6-nfl-game-picks-schedule-guide-fantasy-football-tips-more')
 # espn7 = Article.create_with_text('https://www.espn.com/nfl/story/_/id/27860778/week-7-nfl-game-picks-schedule-guide-fantasy-football-tips-more')
-espn8 = Batch.create_with_all('https://www.espn.com/nfl/story/_/id/27911398/week-8-nfl-game-picks-schedule-guide-fantasy-football-tips-more')
+# espn8 = Batch.create_with_all('https://www.espn.com/nfl/story/_/id/27911398/week-8-nfl-game-picks-schedule-guide-fantasy-football-tips-more')
 # espn9 = Article.create_with_text('https://www.espn.com/nfl/story/_/id/27966856/week-9-nfl-game-picks-schedule-guide-fantasy-football-tips-more')
 # espn10 = Article.create_with_text('https://www.espn.com/nfl/story/_/id/28020375/week-10-nfl-game-picks-schedule-guide-fantasy-football-tips-more')
 # espn11 = Article.create_with_text('https://www.espn.com/nfl/story/_/id/28072584/week-11-nfl-game-picks-schedule-guide-fantasy-football-tips-more')

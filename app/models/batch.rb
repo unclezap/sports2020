@@ -2,6 +2,7 @@ class Batch < ApplicationRecord
     has_many :articles
     has_many :predictions, through: :articles
     has_many :week_results
+    has_many :scores, through: :week_results
 
     # belongs_to :user
 
