@@ -31,6 +31,7 @@ class ArticlesController < ApplicationController
         render json: hash
     end
 
+    #comment
     # private
 
     # def saywhat
