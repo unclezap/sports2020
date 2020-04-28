@@ -14,7 +14,7 @@ class Batch < ApplicationRecord
 
         @date = Scraper.find_publish_date(@article.article_text)
 
-        @nfl_week = GamedayPredictor(@date)
+        @nfl_week = GamedayPredictor.predict_nfl(@date)
 
         @week_result = WeekResult.create_with_scores(@nfl_week[0], @nfl_week[1], @nfl_week[2], @batch.id)
 

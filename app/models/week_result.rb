@@ -9,7 +9,7 @@ class WeekResult < ApplicationRecord
         @website = "https://www.footballdb.com/scores/index.html?lg=NFL&yr=#{year}&type=#{season}&wk=#{week}"
         @text = Scraper.scrape(@website)
         
-        @week_result = Week_result.create(results_text: @text, results_url: @website, week: @week, batch_id: @id)
+        @week_result = WeekResult.create(results_text: @text, results_url: @website, week: @week, batch_id: @id)
 
         all_scores_hash = Scraper.find_all_scores_nfl(@text)
         all_teams = all_scores_hash.keys

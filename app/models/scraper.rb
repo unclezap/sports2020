@@ -44,6 +44,7 @@ class Scraper
     end
 
     def self.find_score(text, team)
+        text = text.to_s
         pick_start = text.index("title=\"#{team}")
         if pick_start !=nil
             score_string = (text.slice(pick_start, 200))
