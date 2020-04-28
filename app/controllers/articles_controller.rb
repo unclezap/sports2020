@@ -20,6 +20,17 @@ class ArticlesController < ApplicationController
         # render json: return_hash
     end
 
+    def new
+    end
+    
+    def create
+        # byebug
+        # batch = Batch.create_with_all(whatdoesitsay)
+        # render json: batch
+        article = Article.all.first
+        render json: article
+    end
+
     private
 
     def whatdoesitsay

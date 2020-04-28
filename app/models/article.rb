@@ -2,10 +2,14 @@ class Article < ApplicationRecord
     has_many :predictions
     belongs_to :batch
 
-    def self.create_with_text(website)
+    def self.create_with_text(website, id)
+        @id = id
         @website = website
-        @html = Scraper.scrape(@website)
-        @article = Article.create(article_text: @html, article_url: @website)
+        
+        @text = Scraper.scrape(@website)
+        
+        @article = Article.create(article_text: @text, article_url: @website, batch_id: @id)
+
         @predictions = Scraper.find_predictions(@article.article_text)
         @predictions.each do |prediction| 
             teams = prediction.keys

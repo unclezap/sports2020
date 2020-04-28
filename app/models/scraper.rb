@@ -1,6 +1,5 @@
 require 'httparty'
 require 'nokogiri'
-require 'pry'
   
 class Scraper
 
@@ -21,7 +20,7 @@ class Scraper
         pick_start = text.index("pick:</strong>")
         # binding.pry
         if pick_start != nil
-            chunk = text.slice(pick_start, 40)
+            chunk = text.slice(pick_start, 80)
             team_a_start = chunk.index(' ') + 1
             team_a_end = chunk.index(',') - 4
             team_a_score_start = chunk.index(',') - 2
@@ -98,5 +97,11 @@ class Scraper
             i += 1 
         end
         results_hash
+    end
+
+    def self.find_publish_date(text)
+        date_start = text.index("datePublished")
+        date = text.slice(date_start+16,10).to_date
+        date
     end
 end
