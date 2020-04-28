@@ -2,7 +2,7 @@ class WeekResult < ApplicationRecord
     belongs_to :batch
     has_many :scores
 
-    def self.create_with_day(week, year, season, id)
+    def self.create_with_scores(week, year, season, id)
         @week = week
         @id = id
 
@@ -16,7 +16,7 @@ class WeekResult < ApplicationRecord
         all_teams.each do |franchise|
             Score.create(team: franchise, points: all_scores_hash[franchise], week_result_id: @week_result.id)
         end
-        
+
         @week_result
     end
 end
