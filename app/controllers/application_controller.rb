@@ -9,6 +9,8 @@ class ApplicationController < ActionController::API
         request.headers['Authorization']
     end
 
+    #test comment
+    
     def decoded_token
         if auth_header
             token = auth_header.split(' ')[0]
