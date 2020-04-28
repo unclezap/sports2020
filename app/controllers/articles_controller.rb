@@ -19,9 +19,6 @@ class ArticlesController < ApplicationController
         # return_hash[:scores] = scores
         # render json: return_hash
     end
-
-    def new
-    end
     
     def create
         batch = Batch.create_with_all(params[:article])
@@ -34,10 +31,10 @@ class ArticlesController < ApplicationController
         render json: hash
     end
 
-    private
+    # private
 
-    def whatdoesitsay
-        params.require(:article).permit(:article_text, :article_url)
-    end
+    # def saywhat
+    #     params.require(:article).permit(:article, :submitted, :controller, :action, :article_text, :article_url)
+    # end
 
 end

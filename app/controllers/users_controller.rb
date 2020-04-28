@@ -1,7 +1,7 @@
-class Api::V1::UsersController < ApplicationController
+class UsersController < ApplicationController
 
     def create
-        @user = User.create(user_params)
+        @user = User.create(whodat)
         if @user.valid?
             render json: @user
         else
