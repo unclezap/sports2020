@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-#test comment
+#test comment not working?
 
     def create
         @user = User.create(whodat)
