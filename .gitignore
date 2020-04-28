@@ -22,3 +22,6 @@
 /config/master.key
 
 /app/controllers/application_controller.rb
+
+/to-do.rb
+/notes.rb
