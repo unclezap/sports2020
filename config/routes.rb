@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :batches
   resources :scores
   resources :predictions
   resources :week_results

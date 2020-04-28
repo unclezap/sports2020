@@ -1,6 +1,7 @@
 class Article < ApplicationRecord
 
     has_many :predictions
+    belongs_to :batch
 
     def self.create_with_text(website)
         @website = website
