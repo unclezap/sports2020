@@ -14,14 +14,27 @@ class Scraper
     end
 
     def self.find_predictions(text, results_array=[])
-        # binding.pry
         text = text.to_s
-        # binding.pry
         pick_start = text.index("pick:</strong>")
-        # binding.pry
+        pick_space_start = text.index("pick: </strong>")
+        space_anomaly = false
+        if !!pick_space_start
+            if !pick_start
+                pick_start = pick_space_start
+            else
+                if pick_space_start < pick_start
+                    pick_start = pick_space_start
+                    space_anomaly = true
+                end
+            end
+        end
         if pick_start != nil
             chunk = text.slice(pick_start, 80)
-            team_a_start = chunk.index(' ') + 1
+            if space_anomaly
+                team_a_start = chunk.index('>') +1
+            else
+                team_a_start = chunk.index(' ') + 1
+            end
             team_a_end = chunk.index(',') - 4
             team_a_score_start = chunk.index(',') - 2
             team_b_start = chunk.index(',') + 2
@@ -37,7 +50,7 @@ class Scraper
             hash[team_b] = chunk2.slice(team_b_score_start..team_b_score_end).to_i
 
             results_array.push(hash)
-            text = text.slice(pick_start+40..text.length)
+            text = text.slice(pick_start+team_b_start+team_b_score_end..text.length)
             Scraper.find_predictions(text, results_array)
         end
         results_array

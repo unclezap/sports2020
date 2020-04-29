@@ -1,8 +1,8 @@
 class Batch < ApplicationRecord
-    has_many :articles
-    has_many :predictions, through: :articles
-    has_many :week_results
-    has_many :scores, through: :week_results
+    has_one :article
+    has_many :predictions, through: :article
+    has_one :week_result
+    has_many :scores, through: :week_result
     belongs_to :user
 
     def self.create_with_all(website, user)
