@@ -1,12 +1,13 @@
 class AuthController < ApplicationController
+    skip_before_action :authorized, only: [:create]
 
 def create
-    @user = User.find_by(username: speakfriendandenter)
+    @user = User.find_by(username: speakfriendandenter[:username])
     if @user && @user.authenticate(speakfriendandenter[:password])
         token = encode_token({user_id: @user.id})
         render json: {user: @user, jwt: token}, status: :accepted
     else
-        render json: {error: 'Bad login information. Usernames are sensitive'}, status :unauthorized
+        render json: {error: 'Bad login information. Usernames are sensitive'}, status: :unauthorized
     end
 end
 

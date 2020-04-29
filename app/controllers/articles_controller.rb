@@ -21,7 +21,7 @@ class ArticlesController < ApplicationController
     end
     
     def create
-        batch = Batch.create_with_all(params[:article])
+        batch = Batch.create_with_all(params[:article], current_user)
         predictions = batch.predictions
         scores = batch.scores
         hash = {}
