@@ -60,9 +60,9 @@ class Scraper
         text = text.to_s
         pick_start = text.index("title=\"#{team}")
         if pick_start !=nil
-            score_string = (text.slice(pick_start, 200))
+            score_string = text.slice(pick_start, 200)
             score_index = score_string.index("</b></td>")
-            score = (score_string.slice(score_index - 2, 2))
+            score = score_string.slice(score_index - 2, 2)
             return score.gsub(/\>/,'')            
         else
             return "bye week"
@@ -71,38 +71,38 @@ class Scraper
 
     def self.find_all_scores_nfl(text)
         teams_array = [
-            "Arizona",
-            "Atlanta",
-            "Baltimore",
-            "Buffalo",
-            "Carolina",
-            "Chicago",
-            "Cincinnati",
-            "Cleveland",
-            "Dallas",
-            "Denver",
-            "Detroit",
-            "Green Bay",
-            "Houston",
-            "Indianapolis",
-            "Jacksonville",
-            "Kansas City",
+            "Arizona Cardinals",
+            "Atlanta Falcons",
+            "Baltimore Ravens",
+            "Buffalo Bills",
+            "Carolina Panthers",
+            "Chicago Bears",
+            "Cincinnati Bengals",
+            "Cleveland Browns",
+            "Dallas Cowboys",
+            "Denver Broncos",
+            "Detroit Lions",
+            "Green Bay Packers",
+            "Houston Texans",
+            "Indianapolis Colts",
+            "Jacksonville Jaguars",
+            "Kansas City Chiefs",
             "Los Angeles Chargers",
             "Los Angeles Rams",
-            "Miami",
-            "Minnesota",
-            "New England",
-            "New Orleans",
+            "Miami Dolphins",
+            "Minnesota Vikings",
+            "New England Patriots",
+            "New Orleans Saints",
             "New York Giants",
             "New York Jets",
-            "Oakland",
-            "Philadelphia",
-            "Pittsburgh",
-            "San Francisco",
-            "Seattle",
-            "Tampa Bay",
-            "Tennessee",
-            "Washington"
+            "Oakland Raiders",
+            "Philadelphia Eagles",
+            "Pittsburgh Steelers",
+            "San Francisco 49ers",
+            "Seattle Seahawks",
+            "Tampa Bay Buccaneers",
+            "Tennessee Titans",
+            "Washington Redskins"
         ]
         i = 0
         results_hash = {}

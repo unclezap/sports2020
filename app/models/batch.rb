@@ -5,11 +5,12 @@ class Batch < ApplicationRecord
     has_many :scores, through: :week_result
     belongs_to :user
 
-    def self.create_with_all(website, user)
+    def self.create_with_all(website, user, name="default name")
         @website = website
         @user = user
+        @name = name
 
-        @batch = Batch.create(name: "default - add a name field to the form", user_id: @user.id)
+        @batch = Batch.create(name: @name, user_id: @user.id)
 
         @article = Article.create_with_text(@website, @batch.id)
 
