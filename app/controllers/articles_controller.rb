@@ -31,12 +31,16 @@ class ArticlesController < ApplicationController
         # adding join tables to batches could make it so the backend doesn't make a new article if someone else has already made it
         predictions = batch.predictions
         scores = batch.scores
+
+        return_array = []
         hash = {}
-        hash[:batch] = batch
+        hash[:id] = batch.id
+        hash[:name] = batch.name
         hash[:predictions] = predictions
         hash[:scores] = scores
+        return_array.push(hash)
  
-        render json: hash
+        render json: return_array
     end
 
     #comment
