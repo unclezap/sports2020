@@ -2,6 +2,8 @@ class BatchesController < ApplicationController
 
     def index
         batches = current_user.batches
+        #currently this does not sort by regular/post season
+        batches = batches.sort_by {|batch| [batch.week_result.year, batch_week_result.week]}
         return_array = []
         batches.each do |batch|
             if batch.article && batch.week_result

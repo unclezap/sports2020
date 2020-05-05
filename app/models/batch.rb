@@ -5,22 +5,19 @@ class Batch < ApplicationRecord
     has_many :scores, through: :week_result
     belongs_to :user
 
-    def self.create_with_all(website, user, name="default name")
+    def self.create_with_all(website, user)
         @website = website
         @user = user
-        @name = name
-        @batch = Batch.create(name: @name, user_id: @user.id)
 
+        @batch = Batch.create(user_id: @user.id)
         @article = Article.create_with_text(@website, @batch.id)
 
         @date = Scraper.find_publish_date(@article.article_text)
 
         @nfl_week = GamedayPredictor.predict_nfl(@date)
 
-        if @name == ""
-            @batch.name = "Week #{@nfl_week[0]}, #{@nfl_week[1]}"
-            @batch.save
-        end
+        @batch.name = "Week #{@nfl_week[0]}, #{@nfl_week[1]}, #{@nfl_week[2].capitalize} Season"
+        @batch.save
 
         @week_result = WeekResult.create_with_scores(@nfl_week[0], @nfl_week[1], @nfl_week[2], @batch.id)
 

@@ -24,7 +24,7 @@ class ArticlesController < ApplicationController
         old_article = current_user.articles.find_by(article_url: params[:article])
         # prevents the making of a new article every time someone looks at an old analysis
         if !old_article
-            batch = Batch.create_with_all(params[:article], current_user, params[:name])
+            batch = Batch.create_with_all(params[:article], current_user)
         else
             batch = old_article.batch
         end
