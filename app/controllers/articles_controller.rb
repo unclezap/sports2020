@@ -36,6 +36,7 @@ class ArticlesController < ApplicationController
         hash = {}
         hash[:id] = batch.id
         hash[:name] = batch.name
+        hash[:week] = batch.week_result.week
         hash[:predictions] = predictions
         hash[:scores] = scores
         return_array.push(hash)
