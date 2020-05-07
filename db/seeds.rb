@@ -3,6 +3,7 @@ Batch.delete_all
 Prediction.delete_all
 Score.delete_all
 WeekResult.delete_all
+User.delete_all
 
 # start = Time.now
 
