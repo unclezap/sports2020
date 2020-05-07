@@ -46,6 +46,9 @@ class Scraper
             team_a = chunk.slice(team_a_start..team_a_end)
             team_b = chunk2.slice(0..team_b_end)
 
+            team_a = team_a.gsub('</strong>','')
+            team_b = team_b.gsub('</strong>','')
+
             hash[team_a] = chunk.slice(team_a_score_start, 2).gsub(/ /,'').to_i
             hash[team_b] = chunk2.slice(team_b_score_start..team_b_score_end).to_i
 
@@ -54,6 +57,7 @@ class Scraper
             Scraper.find_predictions(text, results_array)
         end
         results_array
+
     end
 
     def self.find_score(text, team)
