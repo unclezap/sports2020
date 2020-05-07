@@ -1,7 +1,9 @@
 class BatchesController < ApplicationController
 
     def index
+        # byebug
         batches = current_user.batches
+        batches = batches.select{|batch| !!batch.week_result && !!batch.week_result}
         #currently this does not sort by regular/post season
         batches = batches.sort_by {|batch| [batch.week_result.year, batch.week_result.week]}
         return_array = []

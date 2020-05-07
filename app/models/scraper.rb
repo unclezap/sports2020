@@ -49,6 +49,14 @@ class Scraper
             team_a = team_a.gsub('</strong>','')
             team_b = team_b.gsub('</strong>','')
 
+            team_a = team_a.gsub('Bucs','Buccaneers')
+            team_a = team_a.gsub('Redskins','Washington')
+            team_a = team_a.gsub('Miami','Dolphins')
+            team_b = team_b.gsub('Bucs','Buccaneers')
+            team_b = team_b.gsub('Redskins','Washington')
+            team_b = team_b.gsub('Miami','Dolphins')
+
+
             hash[team_a] = chunk.slice(team_a_score_start, 2).gsub(/ /,'').to_i
             hash[team_b] = chunk2.slice(team_b_score_start..team_b_score_end).to_i
 
