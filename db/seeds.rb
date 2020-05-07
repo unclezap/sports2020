@@ -5,6 +5,9 @@ Score.delete_all
 WeekResult.delete_all
 User.delete_all
 
+@user = User.create(username: "admin", password: "admin")
+Batch.create_all_weeks_for_new_user(@user)
+
 # start = Time.now
 
 # Article.create(article_text: "start db", article_url: "hi!")
