@@ -1,4 +1,5 @@
 class BatchesController < ApplicationController
+    skip_before_action :authorized, only: [:show]
 
     def index
         batches = current_user.batches
@@ -18,6 +19,11 @@ class BatchesController < ApplicationController
             end
         end
         render json: return_array
+    end
+
+    def show
+        batches = Batch.all
+        render json: batches
     end
 
 end
