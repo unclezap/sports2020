@@ -2,7 +2,6 @@ class BatchesController < ApplicationController
     # skip_before_action :authorized, only: [:show]
 
     def index
-        byebug
         #deprecated now that not trying currently saving particular analyses
         # batches = current_user.batches
         batches = Batch.all

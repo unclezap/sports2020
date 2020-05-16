@@ -1,7 +1,6 @@
 class ArticlesController < ApplicationController
 
     def create
-        byebug
         old_article = current_user.articles.find_by(article_url: params[:article])
         # prevents the making of a new article every time someone looks at an old analysis
         if !old_article
