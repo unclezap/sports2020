@@ -26,7 +26,7 @@ class Batch < ApplicationRecord
 
     def self.create_all_weeks_for_new_user(user)
         @user = user
-            if Batch.all.length < 18
+            if Batch.all.length < 17
                 Batch.create_with_all('https://www.espn.com/nfl/story/_/id/27155205/week-1-nfl-game-picks-schedule-guide-fantasy-football-tips-more', @user)
                 Batch.create_with_all('https://www.espn.com/nfl/story/_/id/27593208/week-2-nfl-game-picks-schedule-guide-fantasy-football-tips-more', @user)
                 Batch.create_with_all('https://www.espn.com/nfl/story/_/id/27646341/week-3-nfl-game-picks-schedule-guide-fantasy-football-tips-more', @user)
