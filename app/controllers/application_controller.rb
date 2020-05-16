@@ -32,7 +32,6 @@ class ApplicationController < ActionController::API
     end
 
     def authorized
-        byebug
         render json: {message: 'Please sign up!'}, status: :unauthorized unless logged_in?
     end
 
